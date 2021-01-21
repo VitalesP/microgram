@@ -1,7 +1,9 @@
 package com.microgram.home51lesson02.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,15 +11,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 
 @Data
-@Document(collation = "like")
+@Document(collection = "like")
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Like {
     @Id
-    private Long id;
+    private String id;
+
+    private int count;
 
     @DBRef
     private User user;
 
+    private Publication publication;
+
     private LocalDate localDate;
 
+    public Like(int count, User user, Publication publication, LocalDate localDate) {
+    }
 }

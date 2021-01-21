@@ -22,7 +22,7 @@ public final class Generator {
 
     private static List<String> prepareLorem() {
         try {
-            var rawLorem = Files.readString(Paths.get("lorem.txt"));
+            var rawLorem = Files.readString(Paths.get("D:\\JAVA\\month7_HW\\java_group_5_homework_51_Lesson2\\src\\main\\resources\\lorem.txt"));
             return Arrays.stream(rawLorem.split("\\s"))
                     .map(String::toLowerCase)
                     .map(String::strip)

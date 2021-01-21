@@ -9,11 +9,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 
 @Data
-@Document(collation = "subscription_to_user")
+@Document(collection = "subscription_to_user")
 @Builder
 public class SubscriptionToUser {
     @Id
-    private Long id;
+    private String id;
 
     @DBRef
     private User user;
