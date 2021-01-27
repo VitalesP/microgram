@@ -23,6 +23,9 @@ public class User {
     private String name;
 
     @Indexed
+    private String login;
+
+    @Indexed
     private String email;
 
     private String pass;
