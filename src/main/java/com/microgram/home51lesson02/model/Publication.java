@@ -35,9 +35,6 @@ public class Publication {
     @DBRef
     private List<Comment> comments;
 
-    @DBRef
-    private List<Like> likes;
-
 
     public Publication(int count, String s, String makeDescription, LocalDate now, User user) {
     }

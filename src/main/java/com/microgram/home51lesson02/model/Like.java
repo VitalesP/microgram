@@ -22,7 +22,7 @@ public class Like {
     private int count;
 
     @DBRef
-    private User user;
+    private User author;
 
     private Publication publication;
 
