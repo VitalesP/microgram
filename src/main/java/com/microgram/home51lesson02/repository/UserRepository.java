@@ -9,7 +9,7 @@ public interface UserRepository extends MongoRepository<User, String> {
 //User по ID;
     //проверить существование пользователя по email
 
-    User findByFirstNameAndLastName(String firstName, String lastName);
+    User findByName(String name);
     User findByLogin(String login);
     User findByEmail(String email);
     boolean existsByEmail(String email);

@@ -21,10 +21,7 @@ public class User {
     private int count;
 
     @Indexed
-    private String firstName;
-
-    @Indexed
-    private String lastName;
+    private String name;
 
     @Indexed
     private String login;
@@ -32,7 +29,7 @@ public class User {
     @Indexed
     private String email;
 
-    private String pass;
+    private String password;
 
     private String countPublic;
 
@@ -43,12 +40,11 @@ public class User {
     public static User random() {
         return builder()
                 .email(Generator.makeEmail())
-                .firstName(Generator.makeName())
-                .lastName(Generator.makeName())
+                .name(Generator.makeName())
                 .build();
     }
 
 
-    public User(int count, String firstName, String lastName, String email, String pass, int i1, int i2, int i3) {
+    public User(int count, String name, String email, String pass, int i1, int i2, int i3) {
     }
 }
