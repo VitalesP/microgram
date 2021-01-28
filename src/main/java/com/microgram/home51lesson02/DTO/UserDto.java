@@ -9,9 +9,13 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Builder(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+//@AllArgsConstructor(access = AccessLevel.PRIVATE)
+//@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@AllArgsConstructor
+@NoArgsConstructor
 @PasswordMatches
+@Getter
+@Setter
 public class UserDto {
 //    private String id;
 //    private int count;
@@ -35,6 +39,7 @@ public class UserDto {
     @NotNull
     @NotEmpty
     private String email;
+
 
 
 }

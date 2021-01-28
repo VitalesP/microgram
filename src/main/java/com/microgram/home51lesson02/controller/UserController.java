@@ -1,6 +1,7 @@
 package com.microgram.home51lesson02.controller;
 
 import com.microgram.home51lesson02.DTO.UserDto;
+import com.microgram.home51lesson02.exception.UserAlreadyExistException;
 import com.microgram.home51lesson02.model.User;
 import com.microgram.home51lesson02.service.UserService;
 import org.springframework.ui.Model;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
-//@Valid
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -38,6 +39,7 @@ public class UserController {
         try {
             User registered = userService.registerNewUserAccount(userDto);
         } catch (UserAlreadyExistException uaeEx) {
+            ModelAndView mav = null;
             mav.addObject("message", "An account for that username/email already exists.");
             return mav;
         }
