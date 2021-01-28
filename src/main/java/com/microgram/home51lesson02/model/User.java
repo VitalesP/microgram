@@ -1,5 +1,6 @@
 package com.microgram.home51lesson02.model;
 
+import com.microgram.home51lesson02.util.Generator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +21,10 @@ public class User {
     private int count;
 
     @Indexed
-    private String name;
+    private String firstName;
+
+    @Indexed
+    private String lastName;
 
     @Indexed
     private String login;
@@ -36,6 +40,15 @@ public class User {
 
     private String countSubscriber;
 
-    public User(int count, String name, String email, String pass, int i1, int i2, int i3) {
+    public static User random() {
+        return builder()
+                .email(Generator.makeEmail())
+                .firstName(Generator.makeName())
+                .lastName(Generator.makeName())
+                .build();
+    }
+
+
+    public User(int count, String firstName, String lastName, String email, String pass, int i1, int i2, int i3) {
     }
 }

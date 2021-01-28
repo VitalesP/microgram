@@ -4,13 +4,11 @@ import com.microgram.home51lesson02.model.Publication;
 import com.microgram.home51lesson02.model.SubscriptionToUser;
 import com.microgram.home51lesson02.model.User;
 import com.microgram.home51lesson02.repository.PublicationRepository;
-import com.microgram.home51lesson02.repository.SubscriptionToUserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor

@@ -95,10 +95,13 @@ public class FillDB {
         int size = databaseList.size();
 
         for (int i = size; i < size + count; i++) {
-            String name = Generator.makeName();
+            String firstName = Generator.makeName();
+            String lastName = Generator.makeName();
+
             users.add(new User(i + 1,
-                    name,
-                    name + "@gmail.com",
+                    firstName,
+                    lastName,
+                    firstName + " ! " + lastName + "@gmail.com",
                     Generator.makePassword(),
                     0,
                     0,
