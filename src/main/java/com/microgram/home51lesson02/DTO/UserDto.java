@@ -3,6 +3,7 @@ package com.microgram.home51lesson02.DTO;
 import com.microgram.home51lesson02.annotations.PasswordMatches;
 import com.microgram.home51lesson02.annotations.ValidEmail;
 import lombok.*;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -35,11 +36,22 @@ public class UserDto {
     private String password;
     private String matchingPassword;
 
-    @ValidEmail
+//    @ValidEmail
     @NotNull
     @NotEmpty
     private String email;
 
 
+    public UserDto formFromParams(String name
+            , String password
+            , String matchingPassword
+            , String email){
+        return UserDto.builder()
+                .name(name)
+                .password(password)
+                .matchingPassword(matchingPassword)
+                .email(email)
+                .build();
+    }
 
 }

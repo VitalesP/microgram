@@ -4,6 +4,8 @@ import com.microgram.home51lesson02.DTO.UserDto;
 import com.microgram.home51lesson02.exception.UserAlreadyExistException;
 import com.microgram.home51lesson02.model.User;
 import com.microgram.home51lesson02.service.UserService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +17,7 @@ import javax.validation.Valid;
 
 
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
@@ -24,26 +26,31 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/user/registration")
+    @GetMapping("/registration")
     public String showRegistrationForm(WebRequest request, Model model) {
         UserDto userDto = new UserDto();
         model.addAttribute("user", userDto);
         return "registration";
     }
 
-    @PostMapping("/user/registration")
-    public ModelAndView registerUserAccount(
-            @ModelAttribute("user") @Valid UserDto userDto,
-            HttpServletRequest request, Errors errors) {
-
-        try {
-            User registered = userService.registerNewUserAccount(userDto);
-        } catch (UserAlreadyExistException uaeEx) {
-            ModelAndView mav = null;
-            mav.addObject("message", "An account for that username/email already exists.");
-            return mav;
-        }
-
-        return new ModelAndView("successRegister", "user", userDto);
-    }
+//    @PostMapping("/registration")
+//    public ResponseEntity<String> registerUserAccount(
+//            @RequestParam("name") String name
+//            ,@RequestParam("password") String password
+//            ,@RequestParam("matchingPassword") String matchingPassword
+//            ,@RequestParam("email") String email
+//            ) throws UserAlreadyExistException {
+//
+//            UserDto userDto = new UserDto().formFromParams(name, password, matchingPassword, email);
+//        try {
+//            User registered = userService.registerNewUserAccount
+//                    (userDto);
+//        } catch (UserAlreadyExistException uaeEx) {
+//            ModelAndView mav = null;
+//            assert false;
+//            mav.addObject("message", "An account for that username/email already exists.");
+//            return mav;
+//        }
+//        return ResponseEntity.status(401).body("success");
+//    }
 }
